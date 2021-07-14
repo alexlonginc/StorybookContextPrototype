@@ -1,10 +1,6 @@
 import React from "react"
 import { Thing } from "./CreateScreen"
-
-export const FakeNetworkContext = React.createContext({
-    things: [] as Array<Thing>,
-    onCreateThing: (thing: Thing) => {},
-})
+import { BaseNetworkProvider } from './BaseNetworkProvider';
 
 export const FakeNetworkProvider: React.FC = ({children}) => {
     const [things, setThings] = React.useState<Array<Thing>>([])
@@ -14,8 +10,11 @@ export const FakeNetworkProvider: React.FC = ({children}) => {
     }
 
     return (
-        <FakeNetworkContext.Provider value={{things, onCreateThing}}>
+        <BaseNetworkProvider
+            things={things}
+            onCreateThing={onCreateThing}
+        >
             {children}
-        </FakeNetworkContext.Provider>
+        </BaseNetworkProvider>
     )
 }

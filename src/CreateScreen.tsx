@@ -1,5 +1,5 @@
 import React from "react"
-import { FakeNetworkContext } from './FakeNetworkProvider';
+import { BaseNetworkContext } from './BaseNetworkProvider';
 
 export interface Thing {
     name: string,
@@ -10,7 +10,7 @@ export interface CreateScreenProps {
 
 export const CreateScreen: React.FC<CreateScreenProps> = () => {
     const [name, setName] = React.useState('')
-    const {onCreateThing, things} = React.useContext(FakeNetworkContext)
+    const {onCreateThing, things} = React.useContext(BaseNetworkContext)
     
     return (
         <div>
