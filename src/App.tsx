@@ -1,13 +1,15 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { CreateScreen } from './CreateScreen';
+import { NetworkProvider } from './NetworkProvider';
 
 function App() {
   return (
-    <div className="App">
-      <CreateScreen />
-    </div>
+    <NetworkProvider>
+      <div className="App">
+        <CreateScreen />
+      </div>
+    </NetworkProvider>
   );
 }
 
